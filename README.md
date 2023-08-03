@@ -1,8 +1,8 @@
 # OakNorth JavaScript Home Test
 
 ## Update
-- I added a utils file that extracted some functions to make code easier to read and to handle as well.
-- Previousle I had tests `.not.toTrhow()` pass but added `.toBe('..expected message')` which made some tests fail and helped me realise some mistakes.
+- I added a `utils.js` file that extracted some functions to make code easier to read and to handle as well.
+- Previously I had  all tests `.not.toTrhow()` pass but added `.toBe('..expected message')` which made some tests fail and helped me realise some mistakes.
 - Tried to do some refactoring in `assertEquals.js` to avoid duplication and make code easier to read.
 ## Tools Used for this Challenge
 
