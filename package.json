@@ -1,0 +1,29 @@
+{
+  "name": "oaknorth-revisited-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assert-equals.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "jest --watchAll"
+  },
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ],
+    "rules": {
+      "no-sparse-arrays": "off",
+      "no-plusplus": "off",
+      "no-restricted-syntax": "off"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-wesbos": "^3.2.3"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
+}
