@@ -14,7 +14,8 @@
     "rules": {
       "no-sparse-arrays": "off",
       "no-plusplus": "off",
-      "no-restricted-syntax": "off"
+      "no-restricted-syntax": "off",
+      "guard-for-in": "off"
     }
   },
   "keywords": [],
