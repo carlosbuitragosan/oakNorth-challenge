@@ -1,55 +1,32 @@
-function trimAndLowerCase(input) {
-  if (getType(input) === 'string') {
-    return input.trim().toLowerCase();
-  }
-  if (getType(input) === 'array') {
-    return input.map((item) => {
-      if (getType(item) === 'string') {
-        return item.trim().toLowerCase();
-      }
-      return item;
-    });
-  }
-}
-
-function getType(input) {
-  const result = Object.prototype.toString.call(input);
-  switch (result) {
-    case '[object Array]':
-      return 'array';
-    case '[object String]':
-      return 'string';
-    case '[object Number]':
-      return 'number';
+function getType(item) {
+  const elem = Object.prototype.toString.call(item);
+  switch (elem) {
     case '[object Object]':
       return 'object';
-    case '[object Function]':
-      return 'function';
-    case '[object Boolean]':
-      return 'boolean';
+    case '[object Array]':
+      return 'array';
+    case '[object Number]':
+      return 'number';
+    case '[object String]':
+      return 'string';
     default:
       return 'unknown';
   }
 }
 
-function objectLength(obj) {
-  return Object.keys(obj).length;
-}
-function keysSortedToString(obj) {
-  return Object.keys(obj).sort().toString();
+function compareObjects(obj1, obj2) {
+  if (typeof obj1 !== 'object') {
+    if (obj1 !== obj2) {
+      throw new Error(`Expected ${obj1} but found ${obj2}.`);
+    }
+    return;
+  }
+  const obj1Keys = Object.keys(obj1);
+
+  for (const key of obj1Keys) {
+    compareObjects(obj1[key], obj2[key]);
+  }
+  return 'No error.';
 }
 
-function valuesSortedBykeys(obj) {
-  return JSON.stringify(
-    Object.entries(obj)
-      .sort()
-      .map(([, value]) => value)
-  );
-}
-module.exports = {
-  trimAndLowerCase,
-  getType,
-  objectLength,
-  keysSortedToString,
-  valuesSortedBykeys,
-};
+module.exports = { getType, compareObjects };
